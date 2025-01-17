@@ -9,12 +9,20 @@ class PrimaryButton extends StatelessWidget {
     this.icon,
     this.text,
     this.margin,
+    this.color,
+    this.padding,
+    this.width,
+    this.height,
   });
 
   final VoidCallback? onTap;
   final Widget? icon;
   final String? text;
   final EdgeInsets? margin;
+  final Color? color;
+  final EdgeInsets? padding;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +30,20 @@ class PrimaryButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: margin,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 136,
-          vertical: 19,
-        ),
+        padding:
+            padding ?? const EdgeInsets.symmetric(horizontal: 60, vertical: 18),
+        width: width,
+        height: height,
         decoration: BoxDecoration(
-          color: AppThemeColor.primary,
+          color: color ?? AppThemeColor.primary,
           borderRadius: BorderRadius.circular(32),
         ),
-        child: Text(
-          text ?? "",
-          style: context.p2.copyWith(
-            color: AppThemeColor.white,
+        child: Center(
+          child: Text(
+            text ?? "",
+            style: context.p2.copyWith(
+              color: AppThemeColor.white,
+            ),
           ),
         ),
       ),
